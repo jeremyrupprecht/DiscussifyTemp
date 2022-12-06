@@ -58,7 +58,7 @@ function signupFunc()
     else
     {
         console.log("Reconfirm password")
-        socket.emit('reconfirmPass', {(username: document.getElementById("suname").value))
+        socket.emit('reconfirmPass', {username: document.getElementById("suname").value})
     }
 }
 
