@@ -42,8 +42,8 @@ io.on('connection', (socket) =>
         io.emit("successfulSignUp")
     })
 
-    socket.on("reconfirmPass", () => {
-        io.emit("reconfirmYourPass")
+    socket.on("reconfirmPass", (username) => {
+        io.emit("reconfirmYourPass", (username))
     })
 
     socket.on('login', async ({username, password}) => {
@@ -52,7 +52,7 @@ io.on('connection', (socket) =>
         {
             console.log("+++++++++++++++++++++++++")
             console.log('Cannot find user')
-            io.emit('usrNotFound')
+            io.emit('usrNotFound', (username))
         }
         else
         {
@@ -60,13 +60,13 @@ io.on('connection', (socket) =>
             {
                 console.log("+++++++++++++++++++++++++")
                 console.log('Success')
-                io.emit('succesfulLogin')
+                io.emit('succesfulLogin', (username))
             }
             else
             {
                 console.log("+++++++++++++++++++++++++");
                 console.log('Not Allowed')
-                io.emit('NotAllowed')
+                io.emit('NotAllowed', (username))
             }
         }
     })

@@ -3,29 +3,46 @@ let socket = io()
 let alertMess = document.getElementById("alertMessage")
 let sAlertMess = document.getElementById("signUpAlertMessage")
 
-socket.on("usrNotFound", () => {
-    alertMess.innerHTML = "User Not Found!";
-    alertMess.style.color = "red";
+let myID
+
+socket.on("usrNotFound", (id) => {
+  if(id === myID)
+    {
+     alertMess.innerHTML = "User Not Found!";
+      alertMess.style.color = "red"; 
+    }
 })
 
-socket.on("succesfulLogin", () => {
-    alertMess.innerHTML = "Success!";
-    alertMess.style.color = "green";
+socket.on("succesfulLogin", (id) => {
+  if(id == myID)
+    {
+     alertMess.innerHTML = "Success!";
+     alertMess.style.color = "green"; 
+    }
 })
 
-socket.on("NotAllowed", () => {
-    alertMess.innerHTML = "Not Allowed!";
-    alertMess.style.color = "red";
+socket.on("NotAllowed", (id) => {
+  if(id === myID)
+    {
+     alertMess.innerHTML = "Not Allowed!";
+      alertMess.style.color = "red"; 
+    }
 })
 
-socket.on("reconfirmYourPass", () => {
-    sAlertMess.innerHTML = "Reconfirm Password!";
-    sAlertMess.style.color = "red";
+socket.on("reconfirmYourPass", (id) => {
+  if(id === myID)
+    {
+     sAlertMess.innerHTML = "Reconfirm Password!";
+     sAlertMess.style.color = "red"; 
+    }
 })
 
-socket.on("successfulSignUp", () => {
-    sAlertMess.innerHTML = "Acount Created!";
-    sAlertMess.style.color = "green";
+socket.on("successfulSignUp", (id) => {
+  if(id === myID)
+    {
+     sAlertMess.innerHTML = "Acount Created!";
+     sAlertMess.style.color = "green"; 
+    }
 })
 
 function signupFunc()
@@ -41,11 +58,12 @@ function signupFunc()
     else
     {
         console.log("Reconfirm password")
-        socket.emit('reconfirmPass')
+        socket.emit('reconfirmPass', {(username: document.getElementById("suname").value))
     }
 }
 
 function loginFunc()
 {
     socket.emit('login', {username: document.getElementById("uname").value, password: document.getElementById("psw").value})
+    myID = document.getElementById("uname").value; 
 }
