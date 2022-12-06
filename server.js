@@ -39,10 +39,10 @@ io.on('connection', (socket) =>
         users.push(user)
         console.log("-------------------------------------------------------------------");
         console.log(users);
-        io.emit("successfulSignUp")
+        io.emit("successfulSignUp", (username))
     })
 
-    socket.on("reconfirmPass", (username) => {
+    socket.on("reconfirmPass", ({username}) => {
         io.emit("reconfirmYourPass", (username))
     })
 

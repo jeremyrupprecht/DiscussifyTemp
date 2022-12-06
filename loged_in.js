@@ -30,6 +30,8 @@ socket.on("NotAllowed", (id) => {
 })
 
 socket.on("reconfirmYourPass", (id) => {
+  console.log("The id is " + id);
+  console.log("The myID is " + myID);
   if(id === myID)
     {
      sAlertMess.innerHTML = "Reconfirm Password!";
@@ -54,11 +56,13 @@ function signupFunc()
     if(document.getElementById("spsw").value === document.getElementById("scpsw").value)
     {
         socket.emit('signup', {username: document.getElementById("suname").value, password: document.getElementById("spsw").value})
+        myID = document.getElementById("suname").value;
     }
     else
     {
         console.log("Reconfirm password")
         socket.emit('reconfirmPass', {username: document.getElementById("suname").value})
+        myID = document.getElementById("suname").value;
     }
 }
 
