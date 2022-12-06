@@ -49,8 +49,3 @@ function loginFunc()
 {
     socket.emit('login', {username: document.getElementById("uname").value, password: document.getElementById("psw").value})
 }
-
-function trial()
-{
-  
-}
