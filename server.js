@@ -11,11 +11,15 @@ var server = require('http').createServer(app);
 const users = []
 
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/random.html');
+    res.sendFile(__dirname + '/mainPage.html');
 })
 
 app.get('/style.css', (req, res) => {
     res.sendFile(__dirname + '/style.css');
+})
+
+app.get('/style2.css', (req, res) => {
+    res.sendFile(__dirname + '/style2.css');
 })
 
 app.get('/mainPage.js', (req, res) => {
