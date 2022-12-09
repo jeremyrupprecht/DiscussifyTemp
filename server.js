@@ -34,9 +34,7 @@ app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
 })
 
-app.get('/mainPage.html', (req, res) => {
-    res.sendFile(__dirname + '/mainPage.html');
-})
+
 
 //when a client is connected
 io.on('connection', (socket) => 
