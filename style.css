@@ -1,5 +1,7 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif; margin: 0}
 form {border: 3px solid #f1f1f1;}
+
+/* General Styles/Styles for Login/Sign-up Page */
 
 input[type=text], input[type=password] {
   width: 100%;
@@ -59,3 +61,28 @@ span.psw {
      width: 100%;
   }
 }
+
+/* Styles for Main Feed Page */
+
+  #Infomration-section {
+    background-color: gray;
+    width: 20%;
+    height: 1000px;
+    float: left;
+  }
+
+  #Content-section {
+    background-color: lightblue;
+    margin: auto;
+    height: 1000px;
+  }
+
+
+/* Styles for Post Page */
+
+
+
+
+
+
+
