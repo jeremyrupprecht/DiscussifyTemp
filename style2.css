@@ -103,3 +103,11 @@ body {
     border: 1px solid #cccccc;  
   }
 }
+
+h3, h4{
+  text-align: center;
+}
+#userInfo, #myComInfo, #comInfo {
+  margin-bottom: 100px;
+  color: #2196F3;
+}

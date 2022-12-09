@@ -22,8 +22,12 @@ app.get('/style2.css', (req, res) => {
     res.sendFile(__dirname + '/style2.css');
 })
 
-app.get('/mainPage.js', (req, res) => {
+app.get('/mainPage.html', (req, res) => {
     res.sendFile(__dirname + '/mainPage.html');
+})
+
+app.get('/mainPage.js', (req, res) => {
+    res.sendFile(__dirname + '/mainPage.js');
 })
 
 app.get('/loged_in.js', (req, res) => {
