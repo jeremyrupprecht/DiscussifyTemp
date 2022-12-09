@@ -16,8 +16,9 @@ socket.on("usrNotFound", (id) => {
 socket.on("succesfulLogin", (id) => {
   if(id == myID)
     {
-     alertMess.innerHTML = "Success!";
-     alertMess.style.color = "green"; 
+     // alertMess.innerHTML = "Success!";
+     // alertMess.style.color = "green";
+      window.location.href = "mainPage.html";
     }
 })
 

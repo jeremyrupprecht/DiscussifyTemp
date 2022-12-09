@@ -18,6 +18,10 @@ app.get('/style.css', (req, res) => {
     res.sendFile(__dirname + '/style.css');
 })
 
+app.get('/mainPage.js', (req, res) => {
+    res.sendFile(__dirname + '/mainPage.html');
+})
+
 app.get('/loged_in.js', (req, res) => {
     res.sendFile(__dirname + '/loged_in.js');
 })
@@ -28,6 +32,10 @@ app.get('/index.html', (req, res) => {
 
 app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
+})
+
+app.get('/mainPage.html', (req, res) => {
+    res.sendFile(__dirname + '/mainPage.html');
 })
 
 //when a client is connected
