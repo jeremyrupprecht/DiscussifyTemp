@@ -64,29 +64,6 @@ span.psw {
   }
 }
 
-/* Styles for Main Feed Page */
-
-  #Information-section {
-    background-color: gray;
-    width: 20%;
-    height: 1000px;
-    float: left;
-  }
-
-  #Content-section {
-    background-color: lightblue;
-    margin: auto;
-    height: 1000px;
-  }
-
-  #Search-bar {
-    height: 20px;
-  }
-  
-
-
-/* Styles for Post Page */
-
 
 
 

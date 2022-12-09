@@ -46,12 +46,14 @@ body {
 .topnav .search-container button {
   float: center;
   padding: 15px 15px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #f0f0f0 url(http://www.famfamfam.com/lab/icons/silk/icons/link_go.png) 10px 10px no-repeat;
-  font-size: 17px;
   border: none;
-  cursor: pointer;
+}
+
+.topnav #clickmeIMG{
+  background-image: url("http://www.famfamfam.com/lab/icons/silk/icons/link_go.png");
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
 }
 
 .topnav .search-container button:hover {
