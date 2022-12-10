@@ -106,6 +106,10 @@ io.on('connection', (socket) =>
             }
         }
     })
+  
+  socket.on("posted", ({title, content, community}) => {
+    io.emit("updatePosts", ({title: title, content: content, community: community}));
+  })
 });
 
 http.listen(3000)
