@@ -167,6 +167,17 @@ span.psw {
   text-align: left;
 }
 
+.postBtn{
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 12px 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px 4px;
+  display: inline-block;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
