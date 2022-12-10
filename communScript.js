@@ -1,4 +1,18 @@
+let currentCommunity;
+let address = window.location.href;
+let userName = address.substring(address.lastIndexOf("/") + 1);
+console.log(userName);
+if (true) {
+  currentCommunity = {
+    id: userName,
+  };
+}
+console.log("The community I'm in is " + currentCommunity.id);
+
+
 const modal_container_HTP = document.getElementById('modal-container-HTP');
+
+document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 function enablePost()
 {

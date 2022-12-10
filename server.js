@@ -46,15 +46,25 @@ app.get('/communScript.js', (req, res) => {
     res.sendFile(__dirname + '/communScript.js');
 })
 
-app.get('/codingTips', (req, res) => {
+app.get('/Coding-Tips', (req, res) => {
     res.sendFile(__dirname + '/community.html');
 })
 
-app.get('/studyRoom', (req, res) => {
+app.get('/Study-Room', (req, res) => {
     res.sendFile(__dirname + '/community.html');
 })
 
+app.get('/UofC', (req, res) => {
+    res.sendFile(__dirname + '/community.html');
+})
 
+app.get('/SENG513', (req, res) => {
+    res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/SENG-Courses', (req, res) => {
+    res.sendFile(__dirname + '/community.html');
+})
 
 //when a client is connected
 io.on('connection', (socket) => 
