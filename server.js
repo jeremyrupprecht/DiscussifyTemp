@@ -11,7 +11,7 @@ var server = require('http').createServer(app);
 const users = []
 
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/community.html');
 })
 
 app.get('/style.css', (req, res) => {
@@ -40,6 +40,10 @@ app.get('/index.html', (req, res) => {
 
 app.get('/signup.html', (req, res) => {
     res.sendFile(__dirname + '/signup.html');
+})
+
+app.get('/communScript.js', (req, res) => {
+    res.sendFile(__dirname + '/communScript.js');
 })
 
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+<title>Community 1</title>
+<link rel="stylesheet" href="style.css" />
+<script src="communScript.js" defer></script>
+</head>
+
+
+<body>
+
+  <div class="header">
+    <h1>My community!</h1>
+  </div>
+  
+  <div class="postDiv">
+    <button class="postBtn" onclick="enablePost()">
+       Post!
+    </button>
+  </div>
+
+
+  <div class="modal-container-HTP" id="modal-container-HTP">
+      <div class="modal-HTP"> 
+        <input type="text" id="theTitle" name="theTitle" placeholder="Title"><br><br>
+        <input type="text" id="content" name="content" placeholder="Post..."><br><br>
+        <button id="colseMB" onclick="closePosting()"> Close </button>
+        <button id="postingAbility" onclick="postContent(theTitle.value, content.value)"> Post </button>
+      </div>
+  </div>
+
+  <div class="footer"></div>
+
+</body>
+</html>
