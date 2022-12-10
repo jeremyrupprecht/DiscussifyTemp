@@ -3,8 +3,12 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    email: String,
-    password: String,
+    username: { type: String, unique: true, required: true },
+    password: { type: String, required: true },
+    communitiesOwned: { type: [String], required: true },
+    communitiesFollowed: { type: [String], required: true },
+    postIds: { type: [String], required: true },
+    commentIds: { type: [String], required: true },
   },
   { timestamps: true }
 );
