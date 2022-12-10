@@ -6,6 +6,7 @@
 
 <title>Community 1</title>
 <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style2.css" />
 <script src="/socket.io/socket.io.js"></script>
 <script src="communScript.js" defer></script>
 
@@ -13,9 +14,55 @@
 
 
 <body>
+  
+  <div class="topnav">
+  <a class="active" href="index.html">Log Out</a>
+  <a href="#about">Random 1</a>
+  <a href="#contact">Random 2</a>
+  <div class="search-container">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"></button>
+  </div>
+</div>
+
+  <div class="sidenav">
+    
+    <div id="userInfo">
+      <a href="#">
+        <img
+          src="https://cdn.pixabay.com/photo/2016/03/31/15/16/computer-1293125_960_720.png"
+          alt="gear"
+          style="height: 25px;"
+      /></a>
+      <img
+        src="https://pic.onlinewebfonts.com/svg/img_316131.png"
+        alt="user"
+        style="height: 75px"
+      />
+      <h3>Username</h3>
+    </div>
+
+    <div id="myComInfo">
+      <h4>My Community</h4>
+      <ul>
+        <li><a href="Coding-Tips">Coding Tips</a></li>
+        <li><a href="Study-Room">Study Room</a></li>
+      </ul>
+    </div>
+    
+    <div id="comInfo">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="UofC">UofC</a></li>
+        <li><a href="SENG513">SENG 513</a></li>
+        <li><a href="SENG-Courses">SENG Courses</a></li>
+      </ul>
+    </div>
+    
+  </div>
 
   <div class="header">
-    <h1 id="communityTitle">My community!</h1>
+    <h1 id="communityTitle" align="center">My community!</h1>
   </div>
   
   <div class="postDiv">

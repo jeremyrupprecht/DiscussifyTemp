@@ -32,8 +32,11 @@ socket.on("updatePosts", ({title, content, community}) => {
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
       
-      newDiv.style.border = "thick solid #000000";
-      newDiv.style.padding = "50px 10px 20px 30px";
+      newDiv.style.border = "3px solid #000000";
+      newDiv.style.marginTop = "10px";
+      newDiv.style.width = "90%";
+      newDiv.setAttribute("position", "relative");
+      newDiv.setAttribute("left", "160px");
 
       document.body.appendChild(newDiv);
 
