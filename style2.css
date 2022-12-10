@@ -31,7 +31,6 @@ body {
 }
 
 .topnav .search-container {
-/*   float: center; */
   position:relative; left: 350px;
 }
 
@@ -50,7 +49,7 @@ body {
 }
 
 .topnav #clickmeIMG{
-  background-image: url("http://www.famfamfam.com/lab/icons/silk/icons/link_go.png");
+/*   background-image: url("http://www.famfamfam.com/lab/icons/silk/icons/link_go.png"); */
   background-repeat: no-repeat;
   width: 10px;
   height: 10px;
@@ -75,7 +74,7 @@ body {
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 18px;
   color: #818181;
   display: block;
 }
