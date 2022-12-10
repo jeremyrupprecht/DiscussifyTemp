@@ -32,6 +32,7 @@ body {
 
 .topnav .search-container {
   position:relative; left: 350px;
+  width: 50%; /* otherwise the search bar will cover the hrefs at the top right*/
 }
 
 .topnav input[type=text] {
