@@ -16,24 +16,29 @@ document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 
 socket.on("updatePosts", ({title, content, community}) => {
+  if(community === currentCommunity.id)
+    {
+      const newDiv = document.createElement("div");
   
-  const newDiv = document.createElement("div");
-  
-  const h1 = document.createElement("H1");
-  const hText = document.createTextNode(title);
-  
-  const p = document.createElement("p");
-  const pText = document.createTextNode(content);
-  
-  h1.appendChild(hText);
-  p.appendChild(pText);
-  
-  newDiv.appendChild(h1);
-  newDiv.appendChild(p);
-  
-  document.body.appendChild(newDiv);
+      const h1 = document.createElement("H1");
+      const hText = document.createTextNode(title);
 
-  document.getElementById('modal-container-HTP').classList.remove('show');
+      const p = document.createElement("p");
+      const pText = document.createTextNode(content);
+
+      h1.appendChild(hText);
+      p.appendChild(pText);
+
+      newDiv.appendChild(h1);
+      newDiv.appendChild(p);
+      
+      newDiv.style.border = "thick solid #000000";
+      newDiv.style.padding = "50px 10px 20px 30px";
+
+      document.body.appendChild(newDiv);
+
+      document.getElementById('modal-container-HTP').classList.remove('show'); 
+    }
 })
 
 function enablePost()
