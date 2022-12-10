@@ -44,15 +44,8 @@ body {
 
 .topnav .search-container button {
   float: center;
-  padding: 15px 15px;
+  padding: 8px 10px;
   border: none;
-}
-
-.topnav #clickmeIMG{
-/*   background-image: url("http://www.famfamfam.com/lab/icons/silk/icons/link_go.png"); */
-  background-repeat: no-repeat;
-  width: 10px;
-  height: 10px;
 }
 
 .topnav .search-container button:hover {
@@ -72,7 +65,7 @@ body {
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 4px;
   text-decoration: none;
   font-size: 18px;
   color: #818181;
@@ -81,6 +74,10 @@ body {
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.sidenav ul li{
+  list-style: none;
 }
 
 @media screen and (max-width: 600px) {
