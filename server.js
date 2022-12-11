@@ -107,6 +107,10 @@ io.on('connection', (socket) =>
         }
     })
   
+  socket.on("setTheUser", (username) =>{
+    io.emit("setTheUser2", (username))
+  })
+  
   socket.on("posted", ({title, content, community}) => {
     io.emit("updatePosts", ({title: title, content: content, community: community}));
   })

@@ -1,5 +1,6 @@
 let socket = io()
 
+var myID
 
 let currentCommunity;
 let address = window.location.href;
@@ -14,10 +15,18 @@ console.log("The community I'm in is " + currentCommunity.id);
 
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
+socket.on("setTheUser2", (username) =>{
+  myID = username;
+  console.log("My ID is " + myID);
+})
+
 
 socket.on("updatePosts", ({title, content, community}) => {
   if(community === currentCommunity.id)
     {
+      const p2 = document.createElement("p");
+      const p2Text = document.createTextNode(myID);
+      
       const newDiv = document.createElement("div");
   
       const h1 = document.createElement("H1");
@@ -31,6 +40,7 @@ socket.on("updatePosts", ({title, content, community}) => {
 
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
+      newDiv.appendChild(p2);
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.marginTop = "10px";

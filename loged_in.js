@@ -17,6 +17,7 @@ socket.on("succesfulLogin", (id) => {
   if(id == myID)
     {
       window.location.href = "mainPage.html";
+      socket.emit("setTheUser", ({username: id}));
     }
 })
 
