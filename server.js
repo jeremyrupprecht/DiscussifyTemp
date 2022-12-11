@@ -110,9 +110,6 @@ io.on('connection', (socket) =>
         }
     })
   
-  socket.on("getTheUserName", () => {
-    io.emit("pleaseGetTheUsername", ({username: currUser}))
-  })
   
   
   socket.on("posted", ({title, content, community}) => {

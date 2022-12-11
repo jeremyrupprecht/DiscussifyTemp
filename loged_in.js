@@ -16,7 +16,7 @@ socket.on("usrNotFound", (id) => {
 socket.on("succesfulLogin", (id) => {
   if(id == myID)
     {
-      window.location.href = "mainPage.html";
+      window.location.href = "mainPage.html" + "?" + id;
     }
 })
 
@@ -44,10 +44,6 @@ socket.on("successfulSignUp", (id) => {
      sAlertMess.innerHTML = "Acount Created!";
      sAlertMess.style.color = "green"; 
     }
-})
-
-socket.on("pleaseGetTheUsername", () => {
-  socket.emit("theUsernameIs", ({myID}));
 })
 
 function signupFunc()

@@ -15,12 +15,6 @@ console.log("The community I'm in is " + currentCommunity.id);
 
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
-socket.emit("getTheUserName")
-
-socket.on("theUsername", ({username}) => {
-  console.log("the username is " + username)
-  myID = username
-})
 
 socket.on("updatePosts", ({title, content, community}) => {
   if(community === currentCommunity.id)
