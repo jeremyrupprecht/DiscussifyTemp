@@ -4,7 +4,10 @@ let myID
 
 let currentCommunity;
 let address = window.location.href;
-let communName = address.substring(address.lastIndexOf("/") + 1);
+var parts = address.split("?");
+let temp = parts[0].split("/");
+let communName = temp[3];
+var userID = parts[1];
 console.log(communName);
 if (true) {
   currentCommunity = {
@@ -20,7 +23,7 @@ socket.on("updatePosts", ({title, content, community}) => {
   if(community === currentCommunity.id)
     {
       const p2 = document.createElement("p");
-      const p2Text = document.createTextNode(myID);
+      const p2Text = document.createTextNode(userID);
       
       const newDiv = document.createElement("div");
   

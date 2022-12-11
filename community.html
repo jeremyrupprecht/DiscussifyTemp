@@ -7,7 +7,14 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="style2.css" />
   <script src="/socket.io/socket.io.js"></script>
-  <script src="communScript.js" defer></script>
+  <script src="communScript.js" defer></script> 
+  <script>
+    let id;
+    let titleaddress = window.location.href;
+    var parts = titleaddress.split("?");
+    var result = parts[1];
+    console.log("The current user is " + result);
+  </script>
 </head>
 
 
@@ -41,17 +48,17 @@
     <div id="myComInfo">
       <h4>My Community</h4>
       <ul>
-        <li><a href="Coding-Tips">Coding Tips</a></li>
-        <li><a href="Study-Room">Study Room</a></li>
+        <li><a href="Coding-Tips" onclick="location.href=this.href+'?'+result;return false;">Coding Tips</a></li>
+        <li><a href="Study-Room" onclick="location.href=this.href+'?'+result;return false;">Study Room</a></li>
       </ul>
     </div>
     
     <div id="comInfo">
       <h4>Community</h4>
       <ul>
-        <li><a href="UofC">UofC</a></li>
-        <li><a href="SENG513">SENG 513</a></li>
-        <li><a href="SENG-Courses">SENG Courses</a></li>
+        <li><a href="UofC" onclick="location.href=this.href+'?'+result;return false;">UofC</a></li>
+        <li><a href="SENG513" onclick="location.href=this.href+'?'+result;return false;">SENG 513</a></li>
+        <li><a href="SENG-Courses" onclick="location.href=this.href+'?'+result;return false;">SENG Courses</a></li>
       </ul>
     </div>
     
