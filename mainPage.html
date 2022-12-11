@@ -3,6 +3,13 @@
   
 <head>
   <link rel="stylesheet" href="style2.css">
+  <script>
+    let id;
+    let address = window.location.href;
+    var parts = address.split("?");
+    var result = parts[1];
+    console.log(result);
+  </script>
 </head>
   
 <body>
@@ -33,11 +40,12 @@
       />
       <h3>Username</h3>
     </div>
-
+    
+    <script> console.log("The result is " + result)</script>
     <div id="myComInfo">
       <h4>My Community</h4>
       <ul>
-        <li><a href="Coding-Tips">Coding Tips</a></li>
+        <li><a href="Coding-Tips" onclick="location.href=this.href+'?'+result">Coding Tips</a></li>
         <li><a href="Study-Room">Study Room</a></li>
       </ul>
     </div>
