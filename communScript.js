@@ -19,11 +19,11 @@ console.log("The community I'm in is " + currentCommunity.id);
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 
-socket.on("updatePosts", ({title, content, community}) => {
+socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
     {
       const p2 = document.createElement("p");
-      const p2Text = document.createTextNode(userID);
+      const p2Text = document.createTextNode(username);
       
       const newDiv = document.createElement("div");
   
@@ -64,5 +64,5 @@ function closePosting()
 
 function postContent(title, content)
 {
-  socket.emit("posted", ({title: title, content: content, community: currentCommunity.id}));
+  socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
 }

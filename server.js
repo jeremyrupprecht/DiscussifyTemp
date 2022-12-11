@@ -112,8 +112,8 @@ io.on('connection', (socket) =>
   
   
   
-  socket.on("posted", ({title, content, community}) => {
-    io.emit("updatePosts", ({title: title, content: content, community: community}));
+  socket.on("posted", ({title, content, community, username}) => {
+    io.emit("updatePosts", ({title: title, content: content, community: community, username: username}));
   })
 });
 
