@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const CommunitySchema = new Schema(
   {
+    name: { type: String, required: true, unique: true },
     owner: { type: String, required: true },
-    postsId: { type: [String], required: true },
+    // postsId: { type: [String], required: true },
   },
   { timestamps: true }
 );
