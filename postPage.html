@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <title>Community 1</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style2.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="communScript.js" defer></script> 
+  <script>
+    let id;
+    let titleaddress = window.location.href;
+    var parts = titleaddress.split("?");
+    var result = parts[1];
+    console.log("The current user is " + result);
+  </script>
+</head>
+
+
+<body>
+  <div class="topnav">
+    <a class="active" href="index.html">Log Out</a>
+    <a href="#about">Random 1</a>
+    <a href="#contact">Random 2</a>
+    <div class="header">
+      <h1 id="communityTitle" align="center"></h1>
+    </div>
+  </div>
+
+  <div class="sidenav">
+    
+    <div id="userInfo">
+      <a href="#">
+        <img
+          src="https://cdn.pixabay.com/photo/2016/03/31/15/16/computer-1293125_960_720.png"
+          alt="gear"
+          style="height: 25px;"
+      /></a>
+      <img
+        src="https://pic.onlinewebfonts.com/svg/img_316131.png"
+        alt="user"
+        style="height: 75px"
+      />
+      <h3>Username</h3>
+    </div>
+
+    <div id="myComInfo">
+      <h4>My Community</h4>
+      <ul>
+        <li><a href="Coding-Tips" onclick="location.href=this.href+'?'+result;return false;">Coding Tips</a></li>
+        <li><a href="Study-Room" onclick="location.href=this.href+'?'+result;return false;">Study Room</a></li>
+      </ul>
+    </div>
+    
+    <div id="comInfo">
+      <h4>Community</h4>
+      <ul>
+        <li><a href="UofC" onclick="location.href=this.href+'?'+result;return false;">UofC</a></li>
+        <li><a href="SENG513" onclick="location.href=this.href+'?'+result;return false;">SENG 513</a></li>
+        <li><a href="SENG-Courses" onclick="location.href=this.href+'?'+result;return false;">SENG Courses</a></li>
+      </ul>
+    </div>
+    
+  </div>
+  
+  <div class="postDiv">
+    <button class="postBtn" onclick="enablePost()">
+       Reply
+    </button>
+  </div>
+
+
+  <div class="modal-container-HTP" id="modal-container-HTP">
+      <div class="modal-HTP"> 
+        <input type="text" id="theTitle" name="theTitle" placeholder="Title"><br><br>
+        <input type="text" id="content" name="content" placeholder="Post..."><br><br>
+        <button id="colseMB" onclick="closePosting()"> Close </button>
+        <button id="postingAbility" onclick="postContent(theTitle.value, content.value)"> Post </button>
+      </div>
+  </div>
+
+  <div class="footer"></div>
+
+</body>
+</html>

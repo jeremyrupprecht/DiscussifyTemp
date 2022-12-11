@@ -32,14 +32,21 @@ socket.on("updatePosts", ({title, content, community, username}) => {
 
       const p = document.createElement("p");
       const pText = document.createTextNode(content);
+      
+      var a = document.createElement('a');
+      a.setAttribute('href', 'postPage.html');
+      a.innerText = "Reply";
+      
+      socket.emit("displayPost", ({title, content, community, username}));
 
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
 
+      newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
-      newDiv.appendChild(p2);
+      newDiv.appendChild(a);
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.marginTop = "10px";
