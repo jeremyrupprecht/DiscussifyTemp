@@ -15,13 +15,18 @@ console.log("The community I'm in is " + currentCommunity.id);
 
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
+socket.emit("getTheUserName")
+
+socket.on("theUsername", ({username}) => {
+  console.log("the username is " + username)
+  myID = username
+})
 
 socket.on("updatePosts", ({title, content, community}) => {
   if(community === currentCommunity.id)
     {
       const p2 = document.createElement("p");
       const p2Text = document.createTextNode(myID);
-      console.log("the id is " + myID);
       
       const newDiv = document.createElement("div");
   
@@ -33,6 +38,7 @@ socket.on("updatePosts", ({title, content, community}) => {
 
       h1.appendChild(hText);
       p.appendChild(pText);
+      p2.appendChild(p2Text);
 
       newDiv.appendChild(h1);
       newDiv.appendChild(p);

@@ -46,6 +46,10 @@ socket.on("successfulSignUp", (id) => {
     }
 })
 
+socket.on("pleaseGetTheUsername", () => {
+  socket.emit("theUsernameIs", ({myID}));
+})
+
 function signupFunc()
 {
     console.log(document.getElementById("suname").value);

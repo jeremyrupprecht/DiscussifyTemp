@@ -10,6 +10,8 @@ var server = require('http').createServer(app);
 
 const users = []
 
+var currUser
+
 app.get('/', (req,res) => {
     res.sendFile(__dirname + '/index.html');
 })
@@ -97,6 +99,7 @@ io.on('connection', (socket) =>
                 console.log("+++++++++++++++++++++++++")
                 console.log('Success')
                 io.emit('succesfulLogin', (username))
+                currUser = username
             }
             else
             {
@@ -106,6 +109,10 @@ io.on('connection', (socket) =>
             }
         }
     })
+  
+  socket.on("getTheUserName", () => {
+    io.emit("pleaseGetTheUsername", ({username: currUser}))
+  })
   
   
   socket.on("posted", ({title, content, community}) => {
