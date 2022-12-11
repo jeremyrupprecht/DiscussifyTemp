@@ -36,9 +36,8 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       var a = document.createElement('a');
       a.setAttribute('href', 'postPage.html');
       a.innerText = "Reply";
+      a.setAttribute('onclick', 'sendData(${title})');
       
-      socket.emit("displayPost", ({title: title, content: content, community: community, username: username}));
-
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
@@ -72,4 +71,9 @@ function closePosting()
 function postContent(title, content)
 {
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
+}
+
+function sendData(title, content, community, username)
+{
+  socket.emit("displayPost", ({title: title, content: content, community: community, username: username}));
 }
