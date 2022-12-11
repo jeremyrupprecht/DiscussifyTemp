@@ -82,7 +82,7 @@ io.on('connection', (socket) =>
         io.emit("reconfirmYourPass", (username))
     })
 
-    socket.on('login', async ({username, password}) => {
+    socket.on('login', async ({username, password,}) => {
         const user = users.find(user => user.name == username)
         if(user == null)
         {
