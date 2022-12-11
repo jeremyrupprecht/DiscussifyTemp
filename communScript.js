@@ -23,7 +23,7 @@ socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
     {
       const p2 = document.createElement("p");
-      const p2Text = document.createTextNode(username);
+      const p2Text = document.createTextNode("posted by " + username);
       
       const newDiv = document.createElement("div");
   
@@ -33,19 +33,16 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const p = document.createElement("p");
       const pText = document.createTextNode(content);
       
-      var a = document.createElement('a');
-      a.setAttribute('href', 'postPage.html');
-      a.innerText = "Reply";
-      a.setAttribute('onclick', 'sendData(${title})');
       
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
+      
+      p2.style.color = "#C8CAC8";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
-      newDiv.appendChild(a);
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.marginTop = "10px";
@@ -71,9 +68,4 @@ function closePosting()
 function postContent(title, content)
 {
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
-}
-
-function sendData(title, content, community, username)
-{
-  socket.emit("displayPost", ({title: title, content: content, community: community, username: username}));
 }

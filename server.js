@@ -68,13 +68,6 @@ app.get('/SENG-Courses', (req, res) => {
     res.sendFile(__dirname + '/community.html');
 })
 
-app.get('/postPage.html', (req, res) => {
-    res.sendFile(__dirname + '/postPage.html');
-})
-
-app.get('/postPage.js', (req, res) => {
-    res.sendFile(__dirname + '/postPage.js');
-})
 
 //when a client is connected
 io.on('connection', (socket) => 
@@ -116,10 +109,6 @@ io.on('connection', (socket) =>
                 io.emit('NotAllowed', (username))
             }
         }
-    })
-  
-    socket.on("displayPost", ({title, content, community, username}) => {
-      io.emit("showThePost", ({title: title, content: content, community: community, username: username}));
     })
   
   socket.on("posted", ({title, content, community, username}) => {
