@@ -38,7 +38,7 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       p.appendChild(pText);
       p2.appendChild(p2Text);
       
-      p2.style.color = "#C8CAC8";
+      p2.style.color = "grey";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
