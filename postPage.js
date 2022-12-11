@@ -1,5 +1,6 @@
 let socket = io()
 
+
 let myID
 
 let currentCommunity;
@@ -14,14 +15,15 @@ if (true) {
     id: communName,
   };
 }
-console.log("The community I'm in is " + currentCommunity.id);
-
-document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 
-socket.on("updatePosts", ({title, content, community, username}) => {
-  if(community === currentCommunity.id)
-    {
+socket.on("showThePost", ({title, content, community, username}) => {
+    
+      console.log("the Title is " + title);
+      console.log("the content is " + content);
+      console.log("the community is " + community);
+      console.log("the username is " + username);
+  
       const p2 = document.createElement("p");
       const p2Text = document.createTextNode(username);
       
@@ -37,8 +39,6 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       a.setAttribute('href', 'postPage.html');
       a.innerText = "Reply";
       
-      socket.emit("displayPost", ({title: title, content: content, community: community, username: username}));
-
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
@@ -56,20 +56,5 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       document.body.appendChild(newDiv);
 
       document.getElementById('modal-container-HTP').classList.remove('show'); 
-    }
+    
 })
-
-function enablePost()
-{
-  document.getElementById('modal-container-HTP').classList.add('show');
-}
-
-function closePosting()
-{
-  document.getElementById('modal-container-HTP').classList.remove('show');
-}
-
-function postContent(title, content)
-{
-  socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
-}
