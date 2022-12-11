@@ -3,11 +3,11 @@ let socket = io()
 
 let currentCommunity;
 let address = window.location.href;
-let userName = address.substring(address.lastIndexOf("/") + 1);
-console.log(userName);
+let communName = address.substring(address.lastIndexOf("/") + 1);
+console.log(communName);
 if (true) {
   currentCommunity = {
-    id: userName,
+    id: communName,
   };
 }
 console.log("The community I'm in is " + currentCommunity.id);
