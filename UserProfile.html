@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style3.css" />
+    <title>User Profile</title>
+  </head>
+  <body>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>User Profile</h1>
+    <div class="profile-preview">
+      <img src="SignUp.png" alt="Current Profile Picture" class="profile-pic" />
+      <div class="profile-info">
+        <p><strong>Username:</strong> current_username</p>
+        <p><strong>Bio:</strong> current_bio</p>
+      </div>
+    </div>
+    <form>
+      <label for="bio">Bio:</label><br />
+      <textarea id="bio" name="bio" rows="4" cols="50"></textarea><br />
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" /><br />
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" /><br />
+      <label for="profile-pic">Profile Picture:</label><br />
+      <input type="file" id="profile-pic" name="profile-pic" /><br /><br />
+      <button type="submit" class="green-btn">Save Changes</button>
+      <button type="reset" class="red-btn">Discard Changes</button>
+    </form>
+  </body>
+</html>

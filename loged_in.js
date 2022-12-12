@@ -43,6 +43,7 @@ socket.on("successfulSignUp", (id) => {
     {
      sAlertMess.innerHTML = "Acount Created!";
      sAlertMess.style.color = "green"; 
+      
     }
 })
 
