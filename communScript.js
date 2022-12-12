@@ -21,10 +21,13 @@ document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
     {
-      const p2 = document.createElement("p");
-      const p2Text = document.createTextNode("posted by " + username);
+      
+      // save the username, title and content information in the database
       
       const newDiv = document.createElement("div");
+      
+      const p2 = document.createElement("p");
+      const p2Text = document.createTextNode("posted by " + username);
   
       const h1 = document.createElement("H1");
       const hText = document.createTextNode(title);
@@ -32,16 +35,25 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const p = document.createElement("p");
       const pText = document.createTextNode(content);
       
+      const like = document.createElement("p");
+      const likeText = document.createTextNode("Like");
+      like.style.float = "right"
+      
+      const comment = document.createElement("p");
+      const commentText = document.createTextNode("Comment");
+      
       
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
+      like.appendChild(likeText);
       
       p2.style.color = "grey";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
+      newDiv.appendChild(like);
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.marginTop = "10px";
