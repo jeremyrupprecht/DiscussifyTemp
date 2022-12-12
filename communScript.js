@@ -37,28 +37,34 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       
       const like = document.createElement("p");
       const likeText = document.createTextNode("Like");
-      like.style.float = "right"
+      like.style.float = "right";
       
       const comment = document.createElement("p");
       const commentText = document.createTextNode("Comment");
-      
+      comment.style.float = "right";
+      comment.style.marginLeft = "30px";
       
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
       like.appendChild(likeText);
+      comment.appendChild(commentText);
       
       p2.style.color = "grey";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
+      newDiv.appendChild(comment);
       newDiv.appendChild(like);
       
       newDiv.style.border = "3px solid #000000";
+      newDiv.style.padding = "20px"
       newDiv.style.marginTop = "10px";
       newDiv.style.marginLeft = "180px";
       newDiv.style.width = "80%";
+      newDiv.style.overflow = "hidden";
+      
 
       document.body.appendChild(newDiv);
 
@@ -79,4 +85,12 @@ function closePosting()
 function postContent(title, content)
 {
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
+}
+
+function likePost() {
+  
+}
+
+function commentPost() {
+  
 }
