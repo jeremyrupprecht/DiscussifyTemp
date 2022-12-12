@@ -8,6 +8,11 @@ var parts = address.split("?");
 let temp = parts[0].split("/");
 let communName = temp[3];
 var userID = parts[1];
+
+
+// grab username from database to display
+// ...
+
 console.log(communName);
 if (true) {
   currentCommunity = {
@@ -15,6 +20,8 @@ if (true) {
   };
 }
 console.log("The community I'm in is " + currentCommunity.id);
+
+console.log(parts);
 
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
