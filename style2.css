@@ -81,6 +81,18 @@ body {
   list-style: none;
 }
 
+#userIDToDisplay{
+  overflow: hidden;
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  background-color: orange;
+}
+
 @media screen and (max-width: 600px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
