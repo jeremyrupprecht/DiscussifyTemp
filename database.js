@@ -9,13 +9,16 @@ const DB_USERNAME = "seng513g26dev";
 const DB_PASSWORD = "seng513g26dev";
 
 
+var a = 1
+export {a}
+
 export function test1() {
   console.log("testingggggggggggggggg")
 }
 
 
 // Initializing database connection
-export function initDBConnection() {
+function initDBConnection() {
   mongoose.set("strictQuery", true);
   const db = mongoose
     .connect(
