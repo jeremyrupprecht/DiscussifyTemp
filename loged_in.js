@@ -1,5 +1,7 @@
 let socket = io()
 
+// Client Side JS
+
 let alertMess = document.getElementById("alertMessage")
 let sAlertMess = document.getElementById("signUpAlertMessage")
 

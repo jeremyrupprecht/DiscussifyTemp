@@ -21,7 +21,6 @@ socket.on("updatePosts", ({title, content, community, username}) => {
     const p = document.createElement("p");
     const pText = document.createTextNode(content);
 
-
     h1.appendChild(hText);
     p.appendChild(pText);
     p2.appendChild(p2Text);

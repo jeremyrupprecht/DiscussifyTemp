@@ -69,7 +69,7 @@ app.get('/SENG-Courses', (req, res) => {
 })
 
 
-//when a client is connected
+// when a client is connected
 io.on('connection', (socket) => 
 {
     socket.on('signup', async ({username, password}) => {
@@ -79,6 +79,10 @@ io.on('connection', (socket) =>
         console.log("-------------------------------------------------------------------");
         console.log(users);
         io.emit("successfulSignUp", (username))
+      
+        // Add user to database
+
+      
     })
 
     socket.on("reconfirmPass", ({username}) => {
