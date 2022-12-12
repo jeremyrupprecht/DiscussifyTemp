@@ -7,7 +7,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 var server = require('http').createServer(app);
-//const database = require('./database.js');
+//const database = require('database');
 
 //var database = require('./database');
 
