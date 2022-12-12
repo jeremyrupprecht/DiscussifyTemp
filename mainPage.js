@@ -1,5 +1,12 @@
 let socket = io()
 
+let address2 = window.location.href;
+var parts2 = address2.split("?");
+var result2 = parts2[1];
+//console.log("The current user is " + result);
+
+document.getElementById("userIDToDisplay").innerHTML = result2;
+
 
 socket.on("updatePosts", ({title, content, community, username}) => {
     
