@@ -98,7 +98,10 @@ io.on('connection', (socket) =>
     })
 
     socket.on('login', async ({username, password,}) => {
-        const user = users.find(user => user.name == username)
+      
+        // Pull user from database
+      
+        const user = users.find(user => user.name == username) 
         if(user == null)
         {
             console.log("+++++++++++++++++++++++++")
@@ -124,6 +127,9 @@ io.on('connection', (socket) =>
     })
   
   socket.on("posted", ({title, content, community, username}) => {
+      
+    // Pull posts from database
+    
     io.emit("updatePosts", ({title: title, content: content, community: community, username: username}));
   })
 });
