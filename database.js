@@ -8,8 +8,14 @@ const COLLECTION_NAME = "dev";
 const DB_USERNAME = "seng513g26dev";
 const DB_PASSWORD = "seng513g26dev";
 
+
+export function test1() {
+  console.log("testingggggggggggggggg")
+}
+
+
 // Initializing database connection
-function initDBConnection() {
+export function initDBConnection() {
   mongoose.set("strictQuery", true);
   const db = mongoose
     .connect(

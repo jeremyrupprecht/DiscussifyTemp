@@ -7,11 +7,12 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 var server = require('http').createServer(app);
-const database = require('./database');
+//const database = require('./database.js');
+//import { initDBConnection } from './database.js';
 
 // Connect database
 
-database.initDBConnection()
+//database.initDBConnection()
 
 const users = []
 
@@ -87,7 +88,7 @@ io.on('connection', (socket) =>
       
         // Add user to database
       
-        const isCreateUserSuccess = await database.createUser(user);
+        //const isCreateUserSuccess = await database.createUser(user);
 
       
     })
