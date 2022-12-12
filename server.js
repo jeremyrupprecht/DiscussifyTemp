@@ -9,7 +9,9 @@ const io = require('socket.io')(http);
 var server = require('http').createServer(app);
 //const database = require('./database.js');
 
-var database = require('./tools');
+//var database = require('./database');
+
+//const database = require('./mainPage')
 
 // Connect database
 

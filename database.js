@@ -9,13 +9,13 @@ const DB_USERNAME = "seng513g26dev";
 const DB_PASSWORD = "seng513g26dev";
 
 
-var a = 1
-export {a}
-
-export function test1() {
+let function1 = function test1() {
   console.log("testingggggggggggggggg")
 }
 
+//exports.function1 = function1;
+
+module.exports = {function1}
 
 // Initializing database connection
 function initDBConnection() {
@@ -300,6 +300,7 @@ async function deleteComment(commentId) {
   }
 }
 
+/*
 module.exports = {
   foo: function () {
     return 123
@@ -308,3 +309,4 @@ module.exports = {
     // whatever
   }
 };
+*/
