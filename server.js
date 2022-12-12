@@ -5,27 +5,8 @@ const path = require('path');
 const { Socket } = require('socket.io');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+
 var server = require('http').createServer(app);
-
-//import _ from './database.js';
-//const database = require("./database.js")
-
-//const myMod = require("./database")
-//myMod.func()
-
-//const database = require('database');
-
-//var database = require('./database');
-
-//const f = require('./database.js')
-
-//const database1 = require('./database')
-
-// Connect database
-
-//database.initDBConnection()
-
-//import {test1} from './database.js';
 
 
 

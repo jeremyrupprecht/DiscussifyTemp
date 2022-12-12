@@ -10,7 +10,7 @@ const DB_PASSWORD = "seng513g26dev";
 
 
 //module.exports.func = function test1() {
-//  console.log("testinggg")
+//  console.log("testing")
 //}
 
 function test1() {
