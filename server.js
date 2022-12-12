@@ -1,5 +1,3 @@
-//import { a } from './database.js';
-
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
@@ -10,6 +8,8 @@ const io = require('socket.io')(http);
 
 var server = require('http').createServer(app);
 //const database = require('./database.js');
+
+var database = require('./tools');
 
 // Connect database
 

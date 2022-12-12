@@ -299,3 +299,12 @@ async function deleteComment(commentId) {
     return false;
   }
 }
+
+module.exports = {
+  foo: function () {
+    return 123
+  },
+  bar: function () {
+    // whatever
+  }
+};
