@@ -9,7 +9,6 @@ let temp = parts[0].split("/");
 let communName = temp[3];
 var userID = parts[1];
 
-
 // grab username from database to display
 // ...
 
