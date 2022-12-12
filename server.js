@@ -8,7 +8,7 @@ const io = require('socket.io')(http);
 var server = require('http').createServer(app);
 
 //import _ from './database.js';
-const database1 = require("./database.js")
+//const database = require("./database.js")
 
 //const myMod = require("./database")
 //myMod.func()
@@ -26,6 +26,8 @@ const database1 = require("./database.js")
 //database.initDBConnection()
 
 //import {test1} from './database.js';
+
+
 
 const users = []
 

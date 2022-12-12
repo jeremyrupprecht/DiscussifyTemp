@@ -24,7 +24,7 @@ module.exports = {test1}
 //module.exports = {function1}
 
 // Initializing database connection
-export function initDBConnection() {
+function initDBConnection() {
   mongoose.set("strictQuery", true);
   const db = mongoose
     .connect(
