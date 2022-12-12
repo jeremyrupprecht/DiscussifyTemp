@@ -9,9 +9,15 @@ const DB_USERNAME = "seng513g26dev";
 const DB_PASSWORD = "seng513g26dev";
 
 
-module.exports.func = function test1() {
+//module.exports.func = function test1() {
+//  console.log("testinggg")
+//}
+
+function test1() {
   console.log("testinggg")
 }
+
+module.exports = {test1}
 
 //exports.function1 = function1;
 
