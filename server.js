@@ -70,6 +70,10 @@ app.get('/SENG-Courses', (req, res) => {
     res.sendFile(__dirname + '/community.html');
 })
 
+app.get('/UserProfile.html', (req, res) => {
+    res.sendFile(__dirname + '/UserProfile.html');
+})
+
 
 // when a client is connected
 io.on('connection', (socket) => 

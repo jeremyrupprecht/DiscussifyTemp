@@ -6,6 +6,7 @@ var result2 = parts2[1];
 //console.log("The current user is " + result);
 
 document.getElementById("userIDToDisplay").innerHTML = result2;
+document.getElementById("sidebarUserName").innerHTML = result2;
 
 
 socket.on("updatePosts", ({title, content, community, username}) => {
