@@ -24,6 +24,8 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       
       // save the username, title and content information in the database
       
+      // create comment to display
+      
       const newDiv = document.createElement("div");
       
       const p2 = document.createElement("p");
@@ -65,6 +67,7 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.style.width = "80%";
       newDiv.style.overflow = "hidden";
       
+      // display comment
 
       document.body.appendChild(newDiv);
 
@@ -87,9 +90,13 @@ function postContent(title, content)
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
 }
 
+// access post from database
+
 function likePost() {
   
 }
+
+// access comment from database
 
 function commentPost() {
   
