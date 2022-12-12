@@ -1,6 +1,6 @@
 let socket = io()
 
-let myID
+//let myID
 
 let currentCommunity;
 let address = window.location.href;
@@ -40,41 +40,26 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const likeButton = document.createElement("button");
       likeButton.innerHTML = "Like"
       likeButton.className = "likeButton"
+      likeButton.addEventListener("click", likePost); 
       
       const commentButton = document.createElement("button");
       commentButton.innerHTML = "Comment"
       commentButton.className = "likeButton"
-      commentButton.style.width = ""
-      //commentButton.style.marginLeft = "80px";
-      
-      
-      /*
-      const like = document.createElement("p");
-      const likeText = document.createTextNode("Like");
-      like.style.float = "right";
-      
-      const comment = document.createElement("p");
-      const commentText = document.createTextNode("Comment");
-      comment.style.float = "right";
-      comment.style.marginLeft = "30px";
-      */
-      
+      commentButton.style.width = "90px"
+      commentButton.addEventListener("click", commentPost); 
+    
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
-      
-      //like.appendChild(likeText);
-      //comment.appendChild(commentText);
       
       p2.style.color = "grey";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
-      newDiv.appendChild(likeButton);
       newDiv.appendChild(commentButton);
-      //newDiv.appendChild(comment);
-      //newDiv.appendChild(like);
+      newDiv.appendChild(likeButton);
+
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.padding = "20px"
@@ -109,11 +94,11 @@ function postContent(title, content)
 // access post from database
 
 function likePost() {
-  
+  console.log("liked!")
 }
 
 // access comment from database
 
 function commentPost() {
-  
+    console.log("commented!")
 }

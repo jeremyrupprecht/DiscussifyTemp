@@ -97,10 +97,12 @@ body {
 
 .likeButton {
   float: right;
-  background-color: red;
+  background-color: transparent;
   outline: none;
   width: 60px;
   margin-left: 30px;
+  padding: 10px 14px;
+  border: none;
 }
 
 @media screen and (max-width: 600px) {
