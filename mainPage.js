@@ -5,7 +5,7 @@ var parts2 = address2.split("?");
 var result2 = parts2[1];
 //console.log("The current user is " + result);
 
-document.getElementById("userIDToDisplay").innerHTML = result2;
+document.getElementById("userIDToDisplay").innerHTML = result2;    // grab username from database
 document.getElementById("sidebarUserName").innerHTML = result2;
 
 
