@@ -95,6 +95,14 @@ body {
   background-color: green;
 }
 
+.likeButton {
+  float: right;
+  background-color: red;
+  outline: none;
+  width: 60px;
+  margin-left: 30px;
+}
+
 @media screen and (max-width: 600px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}

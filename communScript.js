@@ -37,6 +37,18 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const p = document.createElement("p");
       const pText = document.createTextNode(content);
       
+      const likeButton = document.createElement("button");
+      likeButton.innerHTML = "Like"
+      likeButton.className = "likeButton"
+      
+      const commentButton = document.createElement("button");
+      commentButton.innerHTML = "Comment"
+      commentButton.className = "likeButton"
+      commentButton.style.width = ""
+      //commentButton.style.marginLeft = "80px";
+      
+      
+      /*
       const like = document.createElement("p");
       const likeText = document.createTextNode("Like");
       like.style.float = "right";
@@ -45,20 +57,24 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const commentText = document.createTextNode("Comment");
       comment.style.float = "right";
       comment.style.marginLeft = "30px";
+      */
       
       h1.appendChild(hText);
       p.appendChild(pText);
       p2.appendChild(p2Text);
-      like.appendChild(likeText);
-      comment.appendChild(commentText);
+      
+      //like.appendChild(likeText);
+      //comment.appendChild(commentText);
       
       p2.style.color = "grey";
 
       newDiv.appendChild(p2);
       newDiv.appendChild(h1);
       newDiv.appendChild(p);
-      newDiv.appendChild(comment);
-      newDiv.appendChild(like);
+      newDiv.appendChild(likeButton);
+      newDiv.appendChild(commentButton);
+      //newDiv.appendChild(comment);
+      //newDiv.appendChild(like);
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.padding = "20px"
