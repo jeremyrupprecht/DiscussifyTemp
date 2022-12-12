@@ -14,7 +14,7 @@ const DB_PASSWORD = "seng513g26dev";
 //}
 
 function test1() {
-  console.log("testinggg")
+  console.log("testing")
 }
 
 module.exports = {test1}

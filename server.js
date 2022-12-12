@@ -9,6 +9,13 @@ const io = require('socket.io')(http);
 var server = require('http').createServer(app);
 
 
+// NOT WORKING
+// const database = require('./database.js')
+// uncommenting this will crash the app, 
+// there are some odd dependency isseues 
+// regarding this version of node and 
+// mongoDB
+
 
 const users = []
 
