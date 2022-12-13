@@ -29,8 +29,8 @@ document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 // give posts a unique id, need to integrate with database
 
-var postId = 0
-var commentId = 0
+var postId = 0          // id needs to be saved with each post, also saved here should be the amount of likes a post gets (under rating)
+var commentId = 0       // id needs to be saved with each comment
 
 socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
@@ -38,7 +38,7 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       
       // save the username, title and content information in the database
       
-      // create comment to display
+      // create post to display
       
       const newDiv = document.createElement("div");
       newDiv.id = "post " + postId
@@ -56,13 +56,17 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       const likeButton = document.createElement("button");
       likeButton.innerHTML = "Like"
       likeButton.className = "likeButton"
-      likeButton.addEventListener("click", likePost); 
+      likeButton.addEventListener("click", function() {
+         likePost(postId) 
+      }); 
       
       const commentButton = document.createElement("button");
       commentButton.innerHTML = "Comment"
       commentButton.className = "likeButton"
       commentButton.style.width = "90px"
-      commentButton.addEventListener("click", commentPost); 
+      commentButton.addEventListener("click", function() {
+         commentPost(commentId,postId) 
+      }); 
     
       h1.appendChild(hText);
       p.appendChild(pText);
@@ -82,16 +86,13 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.style.marginLeft = "180px";
       newDiv.style.width = "80%";
       newDiv.style.overflow = "hidden";
-      
-
-    
-      /*
+            
       newDiv.addEventListener("click", function() {
-        viewPost(postID)
+        viewPost(postId)
       }); 
-      */
-      
-      // display comment
+    
+
+      // display post
 
       document.body.appendChild(newDiv);
 
@@ -121,12 +122,15 @@ function postContent(title, content)
 
 function likePost(postId) {
   console.log("liked! with id:" + postId)
+  
+  socket.emit("postLiked", ({postId: 0}))
+  
 }
 
 // Access comment from database
 
 function commentPost(commentId, postID) {
-    console.log("commented! with id:" + commentId + "on post!" + postID)
+    console.log("commented! with id: " + commentId + " on post!" + postID)
 }
 
 // Access post from database

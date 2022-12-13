@@ -139,6 +139,11 @@ io.on('connection', (socket) =>
     
     io.emit("updatePosts", ({title: title, content: content, community: community, username: username}));
   })
+  
+  socket.on("postLiked", ({postId}) => {
+    console.log("like received")
+  })
+  
 });
 
 http.listen(3000)
