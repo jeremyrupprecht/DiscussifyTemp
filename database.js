@@ -24,13 +24,6 @@ function initDBConnection() {
   }
 }
 
-// Note: When using these CRUD async functions, call them in another async function and use await
-// For example:
-// async function createNewUser(user) {
-//   const isCreateUserSuccess = await createUser(user);
-//   //Other logic...
-// }
-
 // Success: Returns true
 // Failure: Returns false
 async function createUser(user) {
@@ -219,6 +212,22 @@ async function deletePost(postId) {
 
 // Success: Returns true
 // Failure: Returns false
+async function deleteAllPostsOfCommunity(community) {
+  try {
+    const result = await Post.deleteMany({ community: community });
+    if (result.deletedCount > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
+
+// Success: Returns true
+// Failure: Returns false
 async function createComment(comment) {
   try {
     await comment.save();
@@ -265,7 +274,7 @@ async function getPostComments(postId) {
 // Failure: Returns false
 async function updateComment(commentId, update) {
   try {
-    const result = await Post.findOneAndUpdate({ _id: commentId }, update);
+    const result = await Comment.findOneAndUpdate({ _id: commentId }, update);
     if (result) {
       return true;
     } else {
@@ -281,7 +290,23 @@ async function updateComment(commentId, update) {
 // Failure: Returns false
 async function deleteComment(commentId) {
   try {
-    const result = await Post.deleteOne({ _id: commentId });
+    const result = await Comment.deleteOne({ _id: commentId });
+    if (result.deletedCount > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (err) {
+    console.log(err);
+    return false;
+  }
+}
+
+// Success: Returns true
+// Failure: Returns false
+async function deleteAllCommentsOfPost(postId) {
+  try {
+    const result = await Comment.deleteMany({ postId: postId });
     if (result.deletedCount > 0) {
       return true;
     } else {
@@ -308,9 +333,11 @@ module.exports = {
   getCommunityPosts,
   updatePost,
   deletePost,
+  deleteAllPostsOfCommunity,
   createComment,
   getUserComments,
   getPostComments,
   updateComment,
   deleteComment,
+  deleteAllCommentsOfPost,
 };
