@@ -44,3 +44,9 @@ socket.on("updatePosts", ({title, content, community, username}) => {
     document.body.appendChild(newDiv);
     
 })
+
+// Can export this to the community page as this button exists there too
+
+function createCommunity() {
+  console.log("create community!")
+}
