@@ -12,7 +12,7 @@ var server = require('http').createServer(app);
 // NOT WORKING
 // const database = require('./database.js')
 // uncommenting this will crash the app, 
-// there are some odd dependency isseues 
+// there are some odd dependency issues 
 // regarding this version of node and 
 // mongoDB
 
@@ -31,6 +31,10 @@ app.get('/style.css', (req, res) => {
 
 app.get('/style2.css', (req, res) => {
     res.sendFile(__dirname + '/style2.css');
+})
+
+app.get('/style3.css', (req, res) => {
+    res.sendFile(__dirname + '/style3.css');
 })
 
 app.get('/mainPage.html', (req, res) => {
@@ -80,7 +84,9 @@ app.get('/SENG-Courses', (req, res) => {
 app.get('/UserProfile.html', (req, res) => {
     res.sendFile(__dirname + '/UserProfile.html');
 })
-
+app.get('/forgotpw.html', (req, res) => {
+    res.sendFile(__dirname + '/forgotpw.html');
+})
 
 // when a client is connected
 io.on('connection', (socket) => 
