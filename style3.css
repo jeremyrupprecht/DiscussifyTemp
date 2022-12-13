@@ -1,80 +1,81 @@
 /* Center the container on the page */
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30%;
-    margin: auto;
-  }
-  
-  /* Style the text fields */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin: auto;
+}
 
+/* Style the text fields */
 
-  input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #cccccc;
-    border-radius: 4px;
-  }
-  
-  /* Style the logo */
-  .logo {
-    width: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
-  /* Style the main image */
-  .main-image {
-    width: 400px;
-    margin-bottom: 20px;
-  }
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #cccccc;
+  border-radius: 4px;
+}
+
+/* Style the logo */
+.logo {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Style the main image */
+.main-image {
+  width: 400px;
+  margin-bottom: 20px;
+}
 body {
-    font-family: sans-serif;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  form {
-    margin: 0 auto;
-    width: 50%;
-    padding: 20px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-  }
-  
-  .green-btn {
-    color: white;
-    background-color: green;
-    padding: 12px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-  }
-  
-  .red-btn {
-    color: white;
-    background-color: red;
-    padding: 12px 20px;
-    margin: 8px 0;
-    cursor: pointer;
-  }
-  .profile-pic{
-    width: 400px;
-    margin: auto;
-  }
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
+  width: 50%;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.green-btn {
+  color: white;
+  background-color: green;
+  padding: 12px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.red-btn {
+  color: white;
+  background-color: red;
+  padding: 12px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.profile-pic {
+  width: 400px;
+  margin: auto;
+}
