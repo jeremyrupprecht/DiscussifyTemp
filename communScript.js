@@ -41,6 +41,8 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       // create comment to display
       
       const newDiv = document.createElement("div");
+      newDiv.id = "post " + postId
+      console.log(newDiv.id)
       
       const p2 = document.createElement("p");
       const p2Text = document.createTextNode("posted by " + username);
@@ -81,14 +83,8 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.style.width = "80%";
       newDiv.style.overflow = "hidden";
       
-      newDiv.addEventListener("click", function(e){
-        const target = e.target.closest("#div"); 
 
-        if(target){
-          viewPost(postId)
-        }
-      })
-      
+    
       /*
       newDiv.addEventListener("click", function() {
         viewPost(postID)
