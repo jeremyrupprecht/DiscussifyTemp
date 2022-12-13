@@ -9,6 +9,9 @@ let temp = parts[0].split("/");
 let communName = temp[3];
 var userID = parts[1];
 
+
+document.getElementById("sideBarUsername").innerHTML = userID;
+
 // grab username from database to display
 // ...
 

@@ -21,7 +21,7 @@
 <body>
   <div class="topnav">
     <a class="active" href="index.html">Log Out</a>
-   <a id="topLeftTitle" href="mainPage.html">Discussify</a>
+   <a id="topLeftTitle" href="mainPage.html" onclick="location.href=this.href+'?'+result;return false;">Discussify</a>
     <div class="header">
       <h1 id="communityTitle" align="center"></h1>
     </div>
@@ -47,7 +47,7 @@
         />
       </div>
       
-      <h3>Username</h3>
+      <h3 id="sideBarUsername"></h3>
     </div>
 
     <div id="myComInfo">
