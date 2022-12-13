@@ -29,8 +29,8 @@ document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
 // give posts a unique id, need to integrate with database
 
-var postID = 0
-var commentID = 0
+var postId = 0
+var commentId = 0
 
 socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
@@ -80,7 +80,20 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.style.marginLeft = "180px";
       newDiv.style.width = "80%";
       newDiv.style.overflow = "hidden";
-      newDiv.addEventListener("click", viewPost); 
+      
+      newDiv.addEventListener("click", function(e){
+        const target = e.target.closest("#div"); 
+
+        if(target){
+          viewPost(postId)
+        }
+      })
+      
+      /*
+      newDiv.addEventListener("click", function() {
+        viewPost(postID)
+      }); 
+      */
       
       // display comment
 
@@ -88,7 +101,7 @@ socket.on("updatePosts", ({title, content, community, username}) => {
 
       document.getElementById('modal-container-HTP').classList.remove('show'); 
       
-      postID
+      postId++;
       
     }
 })
@@ -122,6 +135,6 @@ function commentPost(commentId, postID) {
 
 // Access post from database
 
-function viewPost(id) {
-  console.log("post viewed! with id:" + id)
+function viewPost(postId) {
+  console.log("post viewed! with id:" + postId)
 }
