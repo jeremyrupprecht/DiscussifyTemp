@@ -162,12 +162,7 @@ app.post("/update-account", isAuthenticated, async (req, res, next) => {
 app.delete("/delete-account", isAuthenticated, async (req, res, next) => {
   const userDeleted = await db.deleteUser(req.user.username);
   if (userDeleted) {
-    req.logout((err) => {
-      if (err) {
-        return next(err);
-      }
-      res.send();
-    });
+    res.send();
   } else {
     res.redirect("/server-error");
   }
@@ -256,12 +251,7 @@ app.delete("/delete-post", isAuthenticated, async (req, res, next) => {
   const postDeleted = await db.deletePost(req.body.postId);
   // TODO: Need to delete all comments under the posts too
   if (postDeleted) {
-    req.logout((err) => {
-      if (err) {
-        return next(err);
-      }
-      res.send();
-    });
+    res.send();
   } else {
     res.redirect("/server-error");
   }
