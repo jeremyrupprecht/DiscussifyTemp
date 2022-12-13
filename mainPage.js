@@ -45,8 +45,27 @@ socket.on("updatePosts", ({title, content, community, username}) => {
     
 })
 
+function filterFunc()
+{
+    var input, filter, prehs, hs, i, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    hs = document.getElementsByTagName("H1");
+    for (i = 0; i < hs.length; i++) {
+        txtValue = hs[i].textContent || hs[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            hs[i].parentNode.style.display = "";
+        } else {
+            hs[i].parentNode.style.display = "none";
+        }
+    }
+}
+
 // Can export this to the community page as this button exists there too
 
 function createCommunity() {
   console.log("create community!")
+  
+  // send socket event to server that a new community has been created
+  
 }
