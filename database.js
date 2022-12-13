@@ -8,36 +8,23 @@ const COLLECTION_NAME = "dev";
 const DB_USERNAME = "seng513g26dev";
 const DB_PASSWORD = "seng513g26dev";
 
-
-//module.exports.func = function test1() {
-//  console.log("testing")
-//}
-
-function test1() {
-  console.log("testing")
-}
-
-module.exports = {test1}
-
-//exports.function1 = function1;
-
-//module.exports = {function1}
-
 // Initializing database connection
 function initDBConnection() {
   mongoose.set("strictQuery", true);
-  const db = mongoose
-    .connect(
+  try {
+    mongoose.connect(
       `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.x0oyajv.mongodb.net/${COLLECTION_NAME}?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }
-    )
-    .catch((err) => console.log(err));
+    );
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-// Note: When using these async functions, call them in another async function and use await
+// Note: When using these CRUD async functions, call them in another async function and use await
 // For example:
 // async function createNewUser(user) {
 //   const isCreateUserSuccess = await createUser(user);
@@ -306,13 +293,24 @@ async function deleteComment(commentId) {
   }
 }
 
-/*
 module.exports = {
-  foo: function () {
-    return 123
-  },
-  bar: function () {
-    // whatever
-  }
+  initDBConnection,
+  createUser,
+  getUser,
+  updateUser,
+  deleteUser,
+  createCommunity,
+  getCommunity,
+  updateCommunity,
+  deleteCommunity,
+  createPost,
+  getUserPosts,
+  getCommunityPosts,
+  updatePost,
+  deletePost,
+  createComment,
+  getUserComments,
+  getPostComments,
+  updateComment,
+  deleteComment,
 };
-*/
