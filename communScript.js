@@ -27,6 +27,11 @@ console.log(parts);
 
 document.getElementById('communityTitle').innerHTML = currentCommunity.id;
 
+// give posts a unique id, need to integrate with database
+
+var postID = 0
+var commentID = 0
+
 socket.on("updatePosts", ({title, content, community, username}) => {
   if(community === currentCommunity.id)
     {
@@ -68,7 +73,6 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.appendChild(p);
       newDiv.appendChild(commentButton);
       newDiv.appendChild(likeButton);
-
       
       newDiv.style.border = "3px solid #000000";
       newDiv.style.padding = "20px"
@@ -76,12 +80,16 @@ socket.on("updatePosts", ({title, content, community, username}) => {
       newDiv.style.marginLeft = "180px";
       newDiv.style.width = "80%";
       newDiv.style.overflow = "hidden";
+      newDiv.addEventListener("click", viewPost); 
       
       // display comment
 
       document.body.appendChild(newDiv);
 
       document.getElementById('modal-container-HTP').classList.remove('show'); 
+      
+      postID
+      
     }
 })
 
@@ -100,14 +108,20 @@ function postContent(title, content)
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
 }
 
-// access post from database
+// Access post from database
 
-function likePost() {
-  console.log("liked!")
+function likePost(postId) {
+  console.log("liked! with id:" + postId)
 }
 
-// access comment from database
+// Access comment from database
 
-function commentPost() {
-    console.log("commented!")
+function commentPost(commentId, postID) {
+    console.log("commented! with id:" + commentId + "on post!" + postID)
+}
+
+// Access post from database
+
+function viewPost(id) {
+  console.log("post viewed! with id:" + id)
 }
