@@ -3,12 +3,6 @@ let socket = io()
 let address2 = window.location.href;
 var parts2 = address2.split("?");
 var result2 = parts2[1];
-//console.log("The current user is " + result);
-
-//console.log("CURRENT USER" + currUser)
-
-// grab username from database to display
-// ...
 
 document.getElementById("sidebarUserName").innerHTML = result2;
 

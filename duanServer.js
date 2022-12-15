@@ -22,6 +22,7 @@ db.initDBConnection();
 
 passport.use(
   new LocalStrategy(async (username, password, cb) => {
+    //console.log("CHECKING")
     const user = await db.getUser(username);
     if (user && password === user.password) {
       return cb(null, user);
@@ -32,6 +33,7 @@ passport.use(
 );
 
 passport.serializeUser((user, cb) => {
+  //console.log("Seralize!")
   cb(null, user.username);
 });
 
@@ -66,6 +68,76 @@ app.use(passport.session());
 //   next();
 // });
 
+
+// endpoints from old server file
+
+app.get('/', (req,res) => {
+  res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/style.css', (req, res) => {
+  res.sendFile(__dirname + '/style.css');
+})
+
+app.get('/style2.css', (req, res) => {
+  res.sendFile(__dirname + '/style2.css');
+})
+
+app.get('/style3.css', (req, res) => {
+  res.sendFile(__dirname + '/style3.css');
+})
+
+app.get('/mainPage.html', (req, res) => {
+  res.sendFile(__dirname + '/mainPage.html');
+})
+
+app.get('/mainPage.js', (req, res) => {
+  res.sendFile(__dirname + '/mainPage.js');
+})
+
+app.get('/loged_in.js', (req, res) => {
+  res.sendFile(__dirname + '/loged_in.js');
+})
+
+app.get('/index.html', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+})
+
+app.get('/signup.html', (req, res) => {
+  res.sendFile(__dirname + '/signup.html');
+})
+
+app.get('/communScript.js', (req, res) => {
+  res.sendFile(__dirname + '/communScript.js');
+})
+
+app.get('/Coding-Tips', (req, res) => {
+  res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/Study-Room', (req, res) => {
+  res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/UofC', (req, res) => {
+  res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/SENG513', (req, res) => {
+  res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/SENG-Courses', (req, res) => {
+  res.sendFile(__dirname + '/community.html');
+})
+
+app.get('/UserProfile.html', (req, res) => {
+  res.sendFile(__dirname + '/UserProfile.html');
+})
+app.get('/forgotpw.html', (req, res) => {
+  res.sendFile(__dirname + '/forgotpw.html');
+})
+
 // ----- User related endpoints ------
 
 app.post("/signup", async (req, res, next) => {
@@ -81,9 +153,13 @@ app.post("/signup", async (req, res, next) => {
     communitiesFollowed: [],
   });
 
+  console.log("User created: " + req.body.username + " password: " + req.body.password)
+
   const userCreated = await db.createUser(newUser);
   if (userCreated) {
-    res.send();
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify({ msg: "success!" }));
+    //res.send()
   } else {
     res.redirect("/server-error");
   }
@@ -103,11 +179,17 @@ app.post(
 );
 
 app.use("/login-success", (req, res, next) => {
+  
+  // redirect user to main page
+  
+  //res.sendFile(__dirname + '/mainPage.html');
   res.send();
+  console.log('LOGIN SUCCESS')
 });
 
 app.use("/login-failure", (req, res, next) => {
-  res.status(401).send();
+  res.status(401).send()
+  console.log('LOGIN FAILURE')
 });
 
 app.post("/logout", (req, res, next) => {

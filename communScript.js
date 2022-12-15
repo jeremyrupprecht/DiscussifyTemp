@@ -115,10 +115,44 @@ function closePosting()
 
 function postContent(title, content)
 {
+
+  /*
   socket.emit("posted", ({title: title, content: content, community: currentCommunity.id, username: userID}));
+  */
+
+  fetch('http://localhost:3000/create-post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        author: "tempAuthor",
+        community: "tempCommunity",
+        title: "tempTitle",
+        rating: "tempRating",
+        body: "tempBody",
+        rating: 0
+      })
+    })
+    .then(res => {
+      if (res.ok) {
+        console.log("OK! " + res.status)  
+        
+        showUpdatedPosts()
+
+      } else if (res.status === 401) {
+        console.log("User unauthenticated!")
+      }
+      //console.log(res. status)
+      //return res.json()   
+    })        
+
 }
 
-// Access post from database
+function showUpdatedPosts() {
+  console.log("updated!!!")
+}
+
 
 function likePost(postId) {
   console.log("liked! with id:" + postId)
@@ -127,13 +161,9 @@ function likePost(postId) {
   
 }
 
-// Access comment from database
-
 function commentPost(commentId, postID) {
     console.log("commented! with id: " + commentId + " on post!" + postID)
 }
-
-// Access post from database
 
 function viewPost(postId) {
   console.log("post viewed! with id:" + postId)

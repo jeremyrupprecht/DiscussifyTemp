@@ -8,15 +8,6 @@ const io = require('socket.io')(http);
 
 var server = require('http').createServer(app);
 
-
-// NOT WORKING
-// const database = require('./database.js')
-// uncommenting this will crash the app, 
-// there are some odd dependency issues 
-// regarding this version of node and 
-// mongoDB
-
-
 const users = []
 
 var currUser
@@ -95,7 +86,7 @@ io.on('connection', (socket) =>
         const hashedPassword = await bcrypt.hash(password, 10)
         const user = {name: username, password: hashedPassword}
         users.push(user)
-        console.log("-------------------------------------------------------------------");
+        console.log("----------------------------signup successful---------------------------------------");
         console.log(users);
         io.emit("successfulSignUp", (username))
       
@@ -141,8 +132,6 @@ io.on('connection', (socket) =>
   
   socket.on("posted", ({title, content, community, username}) => {
       
-    // Pull posts from database
-    
     io.emit("updatePosts", ({title: title, content: content, community: community, username: username}));
   })
   

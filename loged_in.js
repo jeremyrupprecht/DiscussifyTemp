@@ -1,75 +1,100 @@
+const { response } = require("express")
+
 let socket = io()
 
 // Client Side JS
 
-let alertMess = document.getElementById("alertMessage")
-let sAlertMess = document.getElementById("signUpAlertMessage")
-
 let myID
 
-socket.on("usrNotFound", (id) => {
-  if(id === myID)
-    {
-     alertMess.innerHTML = "User Not Found!";
-      alertMess.style.color = "red"; 
-    }
-})
+//
 
-socket.on("succesfulLogin", (id) => {
-  if(id == myID)
-    {
-      window.location.href = "mainPage.html" + "?" + id;
-    }
-})
+function signupFunc() {
 
-socket.on("NotAllowed", (id) => {
-  if(id === myID)
-    {
-     alertMess.innerHTML = "Not Allowed!";
-      alertMess.style.color = "red"; 
-    }
-})
+  let inputUsername = document.getElementById("suname").value
+  let inputPassword = document.getElementById("spsw").value
+  let inputConfirmPassword = document.getElementById("scpsw").value
 
-socket.on("reconfirmYourPass", (id) => {
-  console.log("The id is " + id);
-  console.log("The myID is " + myID);
-  if(id === myID)
-    {
-     sAlertMess.innerHTML = "Reconfirm Password!";
-     sAlertMess.style.color = "red"; 
-    }
-})
+  if (inputPassword === inputConfirmPassword) {
 
-socket.on("successfulSignUp", (id) => {
-  if(id === myID)
-    {
-     sAlertMess.innerHTML = "Acount Created!";
-     sAlertMess.style.color = "green"; 
-      
-    }
-})
+    fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: inputUsername,
+        password: inputPassword
+      })
+    })
+    .then(res => {
+      if (res.ok) {
+        console.log("OK! " + res.status)  
+        showSuccessfulSignup()
+      } else if (res.status === 409) {
+        console.log("Username Taken! " + res.status)
+        showUsernameTaken()
+      }
+    })        
+    .catch(error => console.log('ERROR WITH SIGNUP FETCH'))
 
-function signupFunc()
-{
-    console.log(document.getElementById("suname").value);
-    console.log(document.getElementById("spsw").value);
-    console.log(document.getElementById("scpsw").value);
-
-    if(document.getElementById("spsw").value === document.getElementById("scpsw").value)
-    {
-        socket.emit('signup', {username: document.getElementById("suname").value, password: document.getElementById("spsw").value})
-        myID = document.getElementById("suname").value;
-    }
-    else
-    {
-        console.log("Reconfirm password")
-        socket.emit('reconfirmPass', {username: document.getElementById("suname").value})
-        myID = document.getElementById("suname").value;
-    }
+  } else {
+    showReconfirmPassword()
+  }
 }
 
-function loginFunc()
-{
-    socket.emit('login', {username: document.getElementById("uname").value, password: document.getElementById("psw").value})
-    myID = document.getElementById("uname").value; 
+//
+
+function showSuccessfulSignup() {
+  let sAlertMess = document.getElementById("signUpAlertMessage")
+  sAlertMess.innerHTML = "Acount Created!"
+  sAlertMess.style.color = "green"
+}
+
+function showReconfirmPassword() {
+
+  let sAlertMess = document.getElementById("signUpAlertMessage")
+  sAlertMess.innerHTML = "Reconfirm Password!";
+  sAlertMess.style.color = "red"; 
+}
+
+function showUsernameTaken() {
+  let sAlertMess = document.getElementById("signUpAlertMessage")
+  sAlertMess.innerHTML = "Username Already Taken!";
+  sAlertMess.style.color = "red"; 
+}
+
+function showLoginFailure() {
+  let alertMess = document.getElementById("alertMessage")
+  alertMess.innerHTML = "Login Failure!";
+  alertMess.style.color = "red"; 
+}
+
+function loginFunc() {
+  
+  let inputUsername = document.getElementById("uname").value 
+  let inputPassword = document.getElementById("psw").value
+
+  fetch('http://localhost:3000/login', {
+      method: 'POST',
+      credentials: "include",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: inputUsername,
+        password: inputPassword
+      }),
+    })
+    .then(res => {
+      if (res.ok) {
+          window.location.replace("mainPage.html");
+          console.log("LOGIN OK!")
+      } else if (res.status === 401) {
+        console.log("Login Failure! " + res.status)
+        showLoginFailure()
+
+      } 
+    })
+    .catch(error => console.log('ERROR WITH LOGIN FETCH'))
+
 }
